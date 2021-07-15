@@ -1,7 +1,7 @@
 Build
 ------------
 
-..code:: bash
+.. code:: bash
     
     cd code
     cargo build --target wasm32-unknown-unknown --release
