@@ -9,10 +9,13 @@ pub fn add(a: i32, b: i32) -> i32 {
 
 #[no_mangle]
 pub fn mul(a: u32, b: u32) -> u32 {
+    // The link attribute
+    // https://doc.rust-lang.org/reference/items/external-blocks.html#the-link-attribute
+    #[link(wasm_import_module = "env")]
     extern "C" {
         fn fil_mul(a: u32, b: u32) -> u32;
     }
-
+    
     // NOTE: 使用解释器宿主机器里面的 函数。
     unsafe { fil_mul(a, b) }
 }
